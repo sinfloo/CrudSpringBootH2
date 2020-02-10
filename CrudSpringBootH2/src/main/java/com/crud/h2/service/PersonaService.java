@@ -13,34 +13,29 @@ public class PersonaService implements IPersonaService {
 
 	@Autowired
 	private IPersona dao;
-	
-	@Override
-	public List<Persona> listar() {		
+
+	public List<Persona> listar() {
 		return dao.listar();
 	}
 
-	@Override
-	public Persona listPersonaId(int id) {	
+	public Persona listPersonaId(int id) {
 		// TODO Auto-generated method stub
 		return dao.listPersonaId(id);
 	}
 
-	@Override
 	public int agregar(Persona p) {
 		dao.agregar(p);
 		return 0;
 	}
 
-	@Override
 	public int editar(Persona p) {
 		dao.editar(p);
 		return 0;
 	}
 
-	@Override
 	public void delete(int id) {
 		dao.delete(id);
-		
+
 	}
 
 }

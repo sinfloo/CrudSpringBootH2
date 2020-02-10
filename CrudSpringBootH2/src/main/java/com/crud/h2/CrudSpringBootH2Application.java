@@ -16,7 +16,6 @@ public class CrudSpringBootH2Application implements CommandLineRunner  {
 		SpringApplication.run(CrudSpringBootH2Application.class, args);
 	}
 
-	@Override
 	public void run(String... args) throws Exception {
 		template.execute("DROP TABLE PERSONA IF EXISTS");
 		template.execute("CREATE TABLE PERSONA(id INTEGER(11) PRIMARY KEY auto_increment,name VARCHAR(255))");

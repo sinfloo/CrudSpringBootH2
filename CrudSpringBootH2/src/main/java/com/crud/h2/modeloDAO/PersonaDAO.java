@@ -15,14 +15,12 @@ public class PersonaDAO implements IPersona {
 	@Autowired
 	private JdbcTemplate template;
 
-	@Override
 	public List<Persona> listar() {
 		String sql = "select * from persona";
 		List<Persona> personas = template.query(sql, new BeanPropertyRowMapper<Persona>(Persona.class));
 		return personas;
 	}
 
-	@Override
 	public Persona listPersonaId(int id) {
 		String sql="select * from persona where id=?";
 		Persona per=template.queryForObject(sql,new Object[] {id},new BeanPropertyRowMapper<Persona>(Persona.class));
@@ -30,21 +28,21 @@ public class PersonaDAO implements IPersona {
 
 	}
 
-	@Override
+	
 	public int agregar(Persona p) {
 		String sql = "insert into persona(name)values(?)";
 		int res = template.update(sql, p.getName());
 		return res;
 	}
 
-	@Override
+	
 	public int editar(Persona p) {
 		String sql="update persona set name=? where id=?";
 		int res=template.update(sql,p.getName(),p.getId());
 		return res;
 	}
 
-	@Override
+	
 	public void delete(int id) {
 		String sql="delete from persona where id=?";
 		template.update(sql,id);
